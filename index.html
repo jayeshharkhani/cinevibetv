@@ -2,361 +2,145 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CineVibeTV — Watch Movies</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CineVibeTV — Movies</title>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#090909;
-  color:#fff;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(9,9,9,.96);
-  border-bottom:1px solid #222;
-  padding:18px 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.logo{
-  font-size:26px;
-  font-weight:800;
-  color:#e50914;
-  white-space:nowrap;
-}
-
-.logo span{
-  color:#fff;
-}
-
-.search{
-  width:320px;
-  max-width:45%;
-}
-
-.search input{
-  width:100%;
-  padding:12px 16px;
-  border:1px solid #333;
-  border-radius:25px;
-  outline:none;
-  background:#151515;
-  color:#fff;
-}
-
-.hero{
-  min-height:500px;
-  padding:90px 7%;
-  display:flex;
-  align-items:center;
-  background:
-    linear-gradient(90deg,#090909 20%,rgba(9,9,9,.78),rgba(9,9,9,.15)),
-    linear-gradient(0deg,#090909,transparent),
-    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=80")
-    center/cover;
-}
-
-.hero-content{
-  max-width:650px;
-}
-
-.badge{
-  display:inline-block;
-  background:#e50914;
-  padding:7px 13px;
-  border-radius:5px;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:18px;
-}
-
-.hero h1{
-  font-size:58px;
-  line-height:1;
-  margin-bottom:18px;
-}
-
-.hero p{
-  color:#ccc;
-  font-size:17px;
-  line-height:1.6;
-  margin-bottom:25px;
-}
-
-.btn{
-  display:inline-block;
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-  padding:13px 24px;
-  border-radius:6px;
-  font-weight:bold;
-  font-size:15px;
-}
-
-.btn-primary{
-  background:#e50914;
-  color:#fff;
-}
-
-.btn-primary:hover{
-  background:#ff1824;
-}
-
-.section{
-  padding:35px 6%;
-}
-
-.section-title{
-  font-size:25px;
-  margin-bottom:22px;
-}
-
-.movies{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
-  gap:22px;
-}
-
-.movie{
-  background:#141414;
-  border-radius:9px;
-  overflow:hidden;
-  transition:.25s;
-}
-
-.movie:hover{
-  transform:translateY(-6px);
-}
-
-.poster{
-  width:100%;
-  aspect-ratio:2/3;
-  object-fit:cover;
-  display:block;
-}
-
-.movie-info{
-  padding:13px;
-}
-
-.movie h3{
-  font-size:16px;
-  margin-bottom:7px;
-}
-
-.meta{
-  color:#999;
-  font-size:13px;
-  margin-bottom:12px;
-}
-
-.watch{
-  display:block;
-  text-align:center;
-  padding:9px;
-  border-radius:5px;
-  background:#e50914;
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:bold;
-}
-
-footer{
-  border-top:1px solid #222;
-  text-align:center;
-  padding:30px 20px;
-  color:#777;
-  margin-top:30px;
-}
-
-@media(max-width:700px){
-  header{
-    padding:15px 4%;
-  }
-
-  .logo{
-    font-size:21px;
-  }
-
-  .search{
-    max-width:48%;
-  }
-
-  .hero{
-    min-height:430px;
-    padding:60px 6%;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .movies{
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-  }
-
-  .section{
-    padding:28px 4%;
-  }
-}
+:root{--red:#e50914;--bg:#080808;--card:#171717;--muted:#aaa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
+header{position:fixed;top:0;left:0;right:0;z-index:20;height:70px;display:flex;align-items:center;padding:0 5%;background:linear-gradient(180deg,rgba(0,0,0,.95),rgba(0,0,0,0))}
+.logo{font-size:26px;font-weight:900;color:#fff}.logo span{color:var(--red)}
+nav{display:flex;gap:24px;margin-left:40px}nav a{color:#ddd;text-decoration:none;font-size:14px}nav a:hover{color:#fff}
+.search{margin-left:auto;background:#161616;border:1px solid #333;border-radius:6px;padding:10px 14px;color:#fff;width:230px;outline:none}
+.hero{min-height:650px;padding:150px 5% 70px;display:flex;align-items:center;background:
+linear-gradient(90deg,#080808 5%,rgba(8,8,8,.8) 35%,rgba(8,8,8,.2) 75%,#080808 100%),
+linear-gradient(0deg,#080808 0%,transparent 35%),url('https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg') center/cover}
+.hero-content{max-width:600px}.badge{display:inline-block;background:var(--red);padding:7px 12px;border-radius:4px;font-size:12px;font-weight:bold}
+h1{font-size:clamp(42px,6vw,72px);line-height:.98;margin:18px 0}.hero p{color:#ddd;font-size:17px;line-height:1.6}
+.btn{border:0;border-radius:5px;padding:13px 22px;font-weight:bold;cursor:pointer;margin-right:8px}.play{background:#fff;color:#000}.more{background:#555;color:#fff}
+section{padding:20px 5%}.section-title{font-size:22px;margin:12px 0 18px}
+.row{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}.row::-webkit-scrollbar{display:none}
+.card{flex:0 0 180px;background:var(--card);border-radius:6px;overflow:hidden;cursor:pointer;transition:.2s;position:relative}.card:hover{transform:scale(1.06);z-index:3}
+.poster{width:100%;height:270px;object-fit:cover;background:#222}.info{padding:10px}.title{font-weight:bold;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:12px;color:var(--muted);margin-top:5px}
+.loading{color:#888;padding:25px 0}.error{color:#ff6b6b}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:50;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}
+.modal-box{max-width:900px;width:100%;max-height:90vh;overflow:auto;background:#181818;border-radius:10px;position:relative}.close{position:absolute;right:15px;top:12px;background:#fff;color:#000;border:0;border-radius:50%;width:34px;height:34px;font-size:20px;cursor:pointer;z-index:2}
+.detail{padding:35px}.detail h2{font-size:34px;margin:0 0 12px}.detail p{color:#ccc;line-height:1.6}.rating{color:#ffd43b}
+footer{text-align:center;padding:50px 20px;color:#777;font-size:13px}
+@media(max-width:700px){header{height:60px}.logo{font-size:21px}nav{display:none}.search{width:150px}.hero{min-height:560px;padding-top:130px}.hero p{font-size:14px}.card{flex-basis:135px}.poster{height:205px}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="logo">Cine<span>VibeTV</span></div>
-
-  <div class="search">
-    <input
-      type="text"
-      id="search"
-      placeholder="Search movies..."
-      onkeyup="searchMovies()"
-    >
-  </div>
+  <div class="logo">Cine<span>Vibe</span>TV</div>
+  <nav><a href="#home">Home</a><a href="#trending">Trending</a><a href="#popular">Popular</a><a href="#top">Top Rated</a></nav>
+  <input id="search" class="search" placeholder="Search movies..." autocomplete="off">
 </header>
 
+<main id="home">
 <section class="hero">
-  <div class="hero-content">
-    <div class="badge">CINEVIBETV</div>
-
-    <h1>Movie Night Starts Here.</h1>
-
-    <p>
-      Discover movies, explore new stories and enjoy a beautiful
-      streaming experience from any device.
-    </p>
-
-    <a href="#movies" class="btn btn-primary">Explore Movies</a>
-  </div>
+ <div class="hero-content">
+  <span class="badge">CINEVIBETV</span>
+  <h1>Movie Night<br>Starts Here.</h1>
+  <p>Discover movies, explore new stories and enjoy a premium streaming-style experience on any device.</p>
+  <button class="btn play" onclick="document.getElementById('trending').scrollIntoView({behavior:'smooth'})">▶ Explore Movies</button>
+  <button class="btn more" onclick="showAbout()">ⓘ More Info</button>
+ </div>
 </section>
 
-<section class="section" id="movies">
-
-  <h2 class="section-title">🔥 Featured Movies</h2>
-
-  <div class="movies" id="movieList">
-
-    <div class="movie">
-      <img class="poster"
-      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=600&q=80"
-      alt="Movie poster">
-
-      <div class="movie-info">
-        <h3>The Cinema</h3>
-        <div class="meta">2026 • Drama</div>
-        <a class="watch" href="#">▶ Watch</a>
-      </div>
-    </div>
-
-    <div class="movie">
-      <img class="poster"
-      src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80"
-      alt="Movie poster">
-
-      <div class="movie-info">
-        <h3>Adventure</h3>
-        <div class="meta">2026 • Adventure</div>
-        <a class="watch" href="#">▶ Watch</a>
-      </div>
-    </div>
-
-    <div class="movie">
-      <img class="poster"
-      src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80"
-      alt="Movie poster">
-
-      <div class="movie-info">
-        <h3>The Story</h3>
-        <div class="meta">2025 • Mystery</div>
-        <a class="watch" href="#">▶ Watch</a>
-      </div>
-    </div>
-
-    <div class="movie">
-      <img class="poster"
-      src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=600&q=80"
-      alt="Movie poster">
-
-      <div class="movie-info">
-        <h3>Night Film</h3>
-        <div class="meta">2025 • Thriller</div>
-        <a class="watch" href="#">▶ Watch</a>
-      </div>
-    </div>
-
-    <div class="movie">
-      <img class="poster"
-      src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80"
-      alt="Movie poster">
-
-      <div class="movie-info">
-        <h3>Movie World</h3>
-        <div class="meta">2024 • Action</div>
-        <a class="watch" href="#">▶ Watch</a>
-      </div>
-    </div>
-
-    <div class="movie">
-      <img class="poster"
-      src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=600&q=80"
-      alt="Movie poster">
-
-      <div class="movie-info">
-        <h3>Final Scene</h3>
-        <div class="meta">2024 • Drama</div>
-        <a class="watch" href="#">▶ Watch</a>
-      </div>
-    </div>
-
-  </div>
-</section>
+<section id="trending"><h2 class="section-title">🔥 Trending Now</h2><div id="trendingRow" class="row"><div class="loading">Loading movies...</div></div></section>
+<section id="popular"><h2 class="section-title">🎬 Popular Movies</h2><div id="popularRow" class="row"><div class="loading">Loading movies...</div></div></section>
+<section id="top"><h2 class="section-title">⭐ Top Rated</h2><div id="topRow" class="row"><div class="loading">Loading movies...</div></div></section>
+<section><h2 class="section-title">🆕 Now Playing</h2><div id="nowRow" class="row"><div class="loading">Loading movies...</div></div></section>
+</main>
 
 <footer>
-  © 2026 CineVibeTV • All rights reserved.
+  <p>CineVibeTV © 2026</p>
+  <p>Movie metadata and images powered by TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
 </footer>
 
+<div id="modal" class="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="detail" class="detail"></div></div></div>
+
 <script>
-function searchMovies(){
+/* =========================================
+   TMDB SETUP
+   Later, replace YOUR_TMDB_API_KEY with
+   your own TMDB API key or token.
+   ========================================= */
+const TMDB_API_KEY = "YOUR_TMDB_API_KEY";
+const BASE = "https://api.themoviedb.org/3";
+const IMG = "https://image.tmdb.org/t/p/w500";
 
-  const input =
-    document.getElementById("search").value.toLowerCase();
-
-  const movies =
-    document.querySelectorAll(".movie");
-
-  movies.forEach(movie => {
-
-    const title =
-      movie.querySelector("h3").innerText.toLowerCase();
-
-    movie.style.display =
-      title.includes(input) ? "" : "none";
-
+async function api(path){
+  if(TMDB_API_KEY === "YOUR_TMDB_API_KEY"){
+    throw new Error("TMDB API key not added yet.");
+  }
+  const r = await fetch(BASE + path, {
+    headers:{Authorization:"Bearer " + TMDB_API_KEY, accept:"application/json"}
   });
+  if(!r.ok) throw new Error("TMDB request failed");
+  return r.json();
 }
-</script>
 
+function card(m){
+  const poster=m.poster_path ? IMG+m.poster_path : "";
+  const title=m.title || m.name || "Untitled";
+  const year=(m.release_date||m.first_air_date||"").slice(0,4);
+  return `<article class="card" onclick="openMovie(${m.id})">
+    <img class="poster" src="${poster}" alt="${escapeHtml(title)}" loading="lazy"
+         onerror="this.style.opacity='.2'">
+    <div class="info"><div class="title">${escapeHtml(title)}</div>
+    <div class="meta">${year||"—"} · ⭐ ${(m.vote_average||0).toFixed(1)}</div></div>
+  </article>`;
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function render(id,data){document.getElementById(id).innerHTML=data.results?.map(card).join("")||'<div class="loading">No movies found.</div>';}
+
+async function load(){
+  try{
+    const [tr,pop,top,now]=await Promise.all([
+      api("/trending/movie/week?language=en-US"),
+      api("/movie/popular?language=en-US&page=1"),
+      api("/movie/top_rated?language=en-US&page=1"),
+      api("/movie/now_playing?language=en-US&page=1")
+    ]);
+    render("trendingRow",tr);render("popularRow",pop);render("topRow",top);render("nowRow",now);
+  }catch(e){
+    const msg='<div class="error">TMDB API is not connected yet. Add your API key in this file.</div>';
+    ["trendingRow","popularRow","topRow","nowRow"].forEach(id=>document.getElementById(id).innerHTML=msg);
+  }
+}
+
+async function openMovie(id){
+  const modal=document.getElementById("modal"), detail=document.getElementById("detail");
+  modal.classList.add("open");detail.innerHTML='<div class="loading">Loading details...</div>';
+  try{
+    const m=await api(`/movie/${id}?language=en-US`);
+    const backdrop=m.backdrop_path ? `https://image.tmdb.org/t/p/original${m.backdrop_path}` : "";
+    detail.innerHTML=`
+      ${backdrop?`<img src="${backdrop}" style="width:100%;max-height:420px;object-fit:cover;border-radius:8px">`:""}
+      <h2>${escapeHtml(m.title)}</h2>
+      <div class="rating">⭐ ${m.vote_average?.toFixed(1)||"—"} · ${m.release_date||""} · ${m.runtime||"—"} min</div>
+      <p>${escapeHtml(m.overview||"No description available.")}</p>
+      <button class="btn play" onclick="alert('Connect a legal/licensed video source here.')">▶ Watch</button>`;
+  }catch(e){detail.innerHTML='<div class="error">Could not load movie details.</div>'}
+}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+function showAbout(){alert("CineVibeTV uses TMDB for movie metadata and images. A legal/licensed video source must be connected separately.");}
+document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});
+
+let timer;
+document.getElementById("search").addEventListener("input",e=>{
+  clearTimeout(timer); const q=e.target.value.trim(); if(!q){load();return}
+  timer=setTimeout(async()=>{
+    if(TMDB_API_KEY==="YOUR_TMDB_API_KEY")return;
+    try{
+      const d=await api("/search/movie?query="+encodeURIComponent(q)+"&include_adult=false&language=en-US&page=1");
+      document.getElementById("trendingRow").innerHTML=d.results?.length?d.results.map(card).join(""):'<div class="loading">No results.</div>';
+      document.getElementById("trending").scrollIntoView({behavior:"smooth"});
+    }catch(e){}
+  },400);
+});
+load();
+</script>
 </body>
 </html>
